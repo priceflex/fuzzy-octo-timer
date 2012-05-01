@@ -1,4 +1,10 @@
 SglTimer::Application.routes.draw do
+  get "login/index"
+  
+  post "times" => "timer#create", :as => :timer
+
+  get "timer/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

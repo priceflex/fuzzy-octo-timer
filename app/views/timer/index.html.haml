@@ -1,0 +1,13 @@
+%h3 SGL Project Timer
+= link_to "Start", "#"
+= link_to "Stop", "#"
+=form_for timer_path do |f|
+  =f.label :project_id
+  =f.select("project_id", @projects)
+  =f.label :click_in, "In"
+  =f.text_field :clock_in
+  =f.label :click_out, "Out"
+  =f.text_field :clock_out
+  =f.label :notes, "Notes"
+  =f.text_area :notes
+  =f.submit "Save"
