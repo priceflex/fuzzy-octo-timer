@@ -6,8 +6,6 @@ gem 'rails', '3.2.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem "haml"
-gem "haml-rails"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -36,3 +34,27 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'annotate', '~> 2.4.1.beta'
+gem 'jquery-rails'
+gem 'haml-rails'
+gem 'simple_form'
+
+group :development do
+  gem 'rails3-generators' # for factory_girl_rails and simple_form
+end
+
+group :test, :development do
+  gem "rspec-rails"
+  gem 'rspec-instafail'
+  gem 'rb-fsevent'
+  gem 'growl'
+  gem 'pry'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem 'guard-spork'
+  gem "guard-bundler"
+  gem "guard-rspec"
+  gem "guard-migrate"
+end
