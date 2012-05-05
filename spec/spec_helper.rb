@@ -5,6 +5,7 @@ require 'spork'
 
 Spork.prefork do
   require 'database_cleaner'
+  
   DatabaseCleaner.strategy = :truncation
 
   # Loading more in this block will cause your tests to run faster. However,
@@ -15,11 +16,16 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
+  require "capybara/rspec"
+  require "shoulda"
+
+  include Capybara::DSL
+  
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
-
+  
   RSpec.configure do |config|
     # ## Mock Framework
     #
