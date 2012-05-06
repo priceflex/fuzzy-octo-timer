@@ -59,3 +59,6 @@ group :test, :development do
   gem "guard-migrate"
   gem "shoulda"
 end
+group :production do
+  gem "pg"
+end
