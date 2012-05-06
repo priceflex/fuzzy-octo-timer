@@ -2,8 +2,8 @@ class TimerController < ApplicationController
   before_filter :authenicate
 
   def index
-    if session[:timer_id]
-      @timer = Times.find(session[:timer_id])
+    if current_user.current_timer_id
+      @timer = Times.find(current_user.current_timer_id)
     else
       @timer = Times.new
     end
@@ -13,15 +13,18 @@ class TimerController < ApplicationController
   def update
     @timer = current_user.times.find(params[:times][:id])
     @timer.clock_out = Time.now
+    @timer.notes = params[:times][:notes]
     @timer.save
-    session[:timer_id] = nil
+    current_user.current_timer_id = nil
+    current_user.save
     redirect_to timer_path, :notice => "Stopped Time on #{@timer.project.name}"
   end
   def create
     @timer = current_user.times.new(params[:times])
     @timer.clock_in = Time.now
     if @timer.save
-      session[:timer_id] = @timer.id
+      current_user.current_timer_id = @timer.id
+      current_user.save
       redirect_to timer_path, :notice => "Started #{@timer.project.name}" 
     else
       redirect_to timer_path, :notice => "That did not work!" 

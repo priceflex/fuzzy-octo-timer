@@ -21,4 +21,5 @@ describe Project do
     Times.create(:clock_in => clock_in, :clock_out => clock_out, :project_id => Project.first, :employee_id => Employee.first)
     project.total_time.should == 0.74
   end
+  
 end

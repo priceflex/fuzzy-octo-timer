@@ -25,4 +25,11 @@ describe "Navagate" do
     click_link "Employees"
     current_path.should eq(employees_path)
   end
+  it "to timer" do
+    create_employee
+    login
+    visit timer_path
+    click_link "Home"
+    current_path.should eq(timer_path)
+  end
 end

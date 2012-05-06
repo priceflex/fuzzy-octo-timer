@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120501065833) do
+ActiveRecord::Schema.define(:version => 20120506200221) do
 
   create_table "employees", :force => true do |t|
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "current_timer_id"
   end
 
   create_table "projects", :force => true do |t|

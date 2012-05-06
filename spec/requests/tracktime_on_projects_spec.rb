@@ -19,5 +19,16 @@ describe "TracktimeOnProjects" do
     current_path.should eq(timer_path)
     
   end
-  it "should keep record of active clock on employee"
+  it "should keep record of active clock on employee" do
+    Project.create(:name => "Test Project")
+    create_employee
+    login
+    visit timer_path
+    select "Test Project", :form => "Project"
+    click_button "Start"
+    click_link "Log Out"
+    login
+    page.has_button?("Start").should == false
+  end
+  it "should be able to edit notes and time when project is loaded"
 end

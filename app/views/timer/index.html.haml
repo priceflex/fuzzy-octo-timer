@@ -1,12 +1,10 @@
 %h3 SGL Project Timer
 
-.nav
-  =link_to "Projects", projects_path
-  =link_to "Employees", employees_path
-  =link_to "Log Out", log_out_path
-
 =simple_form_for @timer, :url => timer_path do |f|
-  =f.input :project_id, :collection => @projects, :prompt => "Select your project"
+  -if @timer.clocked_in?
+    ="Project: #{@timer.project.name}"
+  -else
+    =f.input :project_id, :collection => @projects, :prompt => "Select your project"
   =f.input :notes
   -if @timer.clocked_in?
     =f.button :submit, "Stop"
@@ -16,6 +14,9 @@
 
 -if @project
   .project_times
+    %p 
+      Total Time:
+      =@project.total_time if @project
     %table
       %tr
         %th user
@@ -34,6 +35,3 @@
           -#%th= f.text_field :time_decimal
           -#%th= f.submit "save"
 
-    %p 
-      Total Time:
-      =@project.total_time if @project

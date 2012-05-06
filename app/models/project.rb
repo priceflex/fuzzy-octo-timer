@@ -13,6 +13,6 @@ class Project < ActiveRecord::Base
   has_many :times, :class_name => Times
 
   def total_time
-    times.map(&:total_time).sum
+    times.map(&:total_time).sum.round(2)
   end
 end

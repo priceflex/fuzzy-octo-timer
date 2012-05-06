@@ -13,5 +13,14 @@ describe "CreateANewProjects" do
     visit projects_path
     page.should have_content("Please login!")
   end
-  it "should be able to create a project"
+  it "should be able to create a project" do
+    create_employee
+    login
+    visit projects_path
+    click_link "Create New Project"
+    fill_in "Name", :with => "Test Project"
+    click_button "Create"
+    current_path.should eq(projects_path)
+    page.should have_content("Successfully created project Test Project")
+  end
 end
