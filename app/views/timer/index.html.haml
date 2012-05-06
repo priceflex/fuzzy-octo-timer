@@ -1,5 +1,10 @@
 %h3 SGL Project Timer
 
+.nav
+  =link_to "Projects", projects_path
+  =link_to "Employees", employees_path
+  =link_to "Log Out", log_out_path
+
 =form_for times_path do |f|
   =f.label :notes, "Notes"
   =f.text_area :notes

@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
       render "new"
     end
   end
-  def destory
+  def destroy 
     session[:employe_id] = nil
-    redirect_to log_in_path, :alert => "Logged out"
+    redirect_to log_in_path, :alert => "You are now logged out!"
   end
 end
