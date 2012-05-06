@@ -18,13 +18,17 @@ class Times < ActiveRecord::Base
   belongs_to :employee
   belongs_to :project
 
-  
+
   def clocked_in?
     clock_in != nil && clock_out == nil
   end
 
   def total_time_decimal
-    clock_out - clock_in 
+    unless clocked_in?
+      return clock_out - clock_in 
+    else
+      return Time.now - clock_in
+    end
   end
 
   def total_time
@@ -33,7 +37,7 @@ class Times < ActiveRecord::Base
   def total_time_hours_decimal
     (total_time_decimal.to_f/3600.to_i).round(2)
   end
-  
+
   def total_time_display
     Time.at(total_time_decimal).gmtime.strftime('%R:%S')
   end

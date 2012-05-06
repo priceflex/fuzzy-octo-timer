@@ -6,7 +6,7 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body onload="moveTo(0,0); resizeTo(400,400);" class="<%= params[:controller] %>">
     <%= flash_message %>
     <%= yield %>
 

@@ -13,4 +13,5 @@ describe "CreateANewProjects" do
     visit projects_path
     page.should have_content("Please login!")
   end
+  it "should be able to create a project"
 end

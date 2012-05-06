@@ -16,4 +16,5 @@ describe Employee do
   it { should have_db_column(:password_digest).of_type(:string) }
   it { should_not allow_mass_assignment_of(:password_digest) }
   it { should have_many(:times) }
+  it "should be able to create duplicate usernames"
 end

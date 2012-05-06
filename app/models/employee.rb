@@ -11,7 +11,7 @@
 
 class Employee < ActiveRecord::Base
   #attr_accessor :password, :password_conformation
-  attr_accessible :username, :password, :password_confirmation
+  attr_accessible :username, :password, :password_confirmation, :times_attributes
   has_many :times, :class_name => Times
   has_secure_password
   #validates_presence_of :password, :on => :create

@@ -5,30 +5,35 @@
   =link_to "Employees", employees_path
   =link_to "Log Out", log_out_path
 
-=form_for times_path do |f|
-  =f.label :notes, "Notes"
-  =f.text_area :notes
-  =text_field_tag "curent_time"
-  =f.submit "Start"
-  =f.submit "Stop"
-- if @project
-  %table
-    %tr
-      %th user
-      %th clock in 
-      %th clock out  
-      %th notes
-      %th decimal
-      %th action
-    -@proejct.times.each do |time|
-      =form_for time do |f|
+=simple_form_for @timer, :url => timer_path do |f|
+  =f.input :project_id, :collection => @projects, :prompt => "Select your project"
+  =f.input :notes
+  -if @timer.clocked_in?
+    =f.button :submit, "Stop"
+    =f.input :id, :as => :hidden
+  -else
+    =f.button :submit, "Start"
+
+-if @project
+  .project_times
+    %table
+      %tr
+        %th user
+        %th clock in 
+        %th clock out  
+        %th notes
+        %th decimal
+        %th action
+      -@project.times.each do |time|
+        -#=form_for time do |f|
         %tr
           %td= time.employee.username
           %th= time.clock_in
           %th= time.clock_out
           %th= time.notes
-          %th= f.text_field :time_decimal
-          %th= f.submit "save"
-%p 
-  Total Time:
-  =@project.total_time if @project
+          -#%th= f.text_field :time_decimal
+          -#%th= f.submit "save"
+
+    %p 
+      Total Time:
+      =@project.total_time if @project

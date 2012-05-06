@@ -17,5 +17,6 @@ describe "AddUsersAccoutns" do
     page.should have_content("Please login!")
     current_path.should eq(log_in_path)
   end
+  it "should be able to create a user"
 
 end

@@ -2,15 +2,14 @@ SglTimer::Application.routes.draw do
 
   root :to => 'timer#index'
   get "login/index"
-  
-  post "times" => "timer#create", :as => :times
-
-  get "times" => "timer#index", :as => :times
+    
 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in" 
 
   get "timer" => "timer#index", :as => :timer
+  post "timer" => "timer#create", :as => :timer
+  put "timer" => "timer#update", :as => :timer
 
   resources :sessions
   resources :employees

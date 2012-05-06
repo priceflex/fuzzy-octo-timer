@@ -26,6 +26,11 @@ describe Times do
   end
   it { belong_to(:employee) }
   it { belong_to(:project) }
+
+  it "shoudd be clocked out if clocked out" do
+    time = Times.create(:clock_in => Time.now, :clock_out => Time.now)
+    time.clocked_in?.should == false 
+  end
   it "shoudd be clocked in if clocked out" do
     time = Times.create(:clock_in => Time.now)
     time.clocked_in?.should == true
