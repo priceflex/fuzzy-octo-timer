@@ -1,6 +1,6 @@
 %h3 SGL Project Timer
 
-=form_for timer_path do |f|
+=form_for times_path do |f|
   =f.label :notes, "Notes"
   =f.text_area :notes
   =text_field_tag "curent_time"
@@ -26,4 +26,4 @@
           %th= f.submit "save"
 %p 
   Total Time:
-  =@project.total_time
+  =@project.total_time if @project

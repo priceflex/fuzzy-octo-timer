@@ -1,0 +1,11 @@
+%h1 Employees
+
+%table
+  %tr
+    %th username
+    %th actions
+  -@employees.each do |employee|
+    %tr
+      %td= employee.username
+      %td= link_to "Edit", employee 
+

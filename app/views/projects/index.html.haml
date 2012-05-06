@@ -1,0 +1,13 @@
+%h1 Projects
+
+%table
+  %tr
+    %th Name
+    %th Action
+  -@projects.each do |project|
+    %tr
+      %td= project.name
+      %td
+        = link_to "edit", edit_project_path(project)
+        = link_to "destroy", project_path(project), :method => :delete
+      

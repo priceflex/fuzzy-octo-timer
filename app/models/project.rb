@@ -10,7 +10,7 @@
 
 class Project < ActiveRecord::Base
   attr_accessible :name, :total_time
-  has_many :times, :class_name => Times
+  has_many :times, :class_name => Times, :as => :times
 
   def total_time
     
