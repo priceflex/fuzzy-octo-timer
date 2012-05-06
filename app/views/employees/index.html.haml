@@ -7,5 +7,5 @@
   -@employees.each do |employee|
     %tr
       %td= employee.username
-      %td= link_to "Edit", employee 
-
+      %td= link_to "Edit", edit_employee_path(employee)
+=link_to "Add Employee", new_employee_path

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     end
   end
   def destroy 
-    session[:employe_id] = nil
+    session[:employee_id] = nil
     session[:timer_id] = nil
     redirect_to log_in_path, :alert => "You are now logged out!"
   end

@@ -17,6 +17,40 @@ describe "AddUsersAccoutns" do
     page.should have_content("Please login!")
     current_path.should eq(log_in_path)
   end
-  it "should be able to create a user"
+  it "should be able to create a user" do
+    create_employee
+    login
+    visit employees_path
+    click_link "Add Employee"
+    fill_in "Username", :with => "testuser"
+    fill_in "Password", :with => "secret"
+    fill_in "Confirm Password", :with => "secret"
+    click_button "Create"
+    current_path.should eq(employees_path)
+    page.should have_content("testuser")
+  end
 
+  it "shoud be able to edit employee" do
+    create_employee
+    login
+    visit employees_path
+    click_link "Edit"
+    fill_in "Username", :with => "user1"
+    click_button "Update"
+    current_path.should eq(employees_path)
+    page.should have_content("user1")
+  end
+  it "should not change the password when password is blank" do
+    create_employee
+    login
+    visit employees_path
+    click_link "Edit"
+    #fill_in "Username", :with => "user1"
+    click_button "Update"
+    click_link "Log Out"
+    login
+    page.should have_content("Logged in") 
+  end
+
+  #it "should be able to delete eemployee"
 end
