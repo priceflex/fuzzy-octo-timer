@@ -1,4 +1,4 @@
 language: ruby
 rvm:
-  - 1.9.2p318
+  - 1.9.2
 
