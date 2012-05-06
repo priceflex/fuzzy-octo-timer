@@ -10,9 +10,9 @@
 
 class Project < ActiveRecord::Base
   attr_accessible :name, :total_time
-  has_many :times, :class_name => Times, :as => :times
+  has_many :times, :class_name => Times
 
   def total_time
-    
+    times.map(&:total_time).sum
   end
 end

@@ -17,9 +17,25 @@ class Times < ActiveRecord::Base
   attr_accessible :clock_in, :clock_out, :employee_id, :project_id, :time_decimal, :notes
   belongs_to :employee
   belongs_to :project
+
   
   def clocked_in?
     clock_in != nil && clock_out == nil
+  end
+
+  def total_time_decimal
+    clock_out - clock_in 
+  end
+
+  def total_time
+    total_time_hours_decimal
+  end
+  def total_time_hours_decimal
+    (total_time_decimal.to_f/3600.to_i).round(2)
+  end
+  
+  def total_time_display
+    Time.at(total_time_decimal).gmtime.strftime('%R:%S')
   end
 
 end
