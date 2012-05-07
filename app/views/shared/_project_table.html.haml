@@ -10,7 +10,7 @@
       %th notes
       %th decimal
       %th action
-    -@project.times.each do |time|
+    -@project.times.order("id desc").each do |time|
       -#=form_for time do |f|
       %tr
         %td= time.employee.username
