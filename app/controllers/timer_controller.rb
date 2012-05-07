@@ -12,7 +12,9 @@ class TimerController < ApplicationController
   end
   def update
     @timer = current_user.times.find(params[:times][:id])
-    @timer.clock_out = Time.now
+    unless @timer.clock_out 
+      @timer.clock_out = Time.now
+    end
     @timer.notes = params[:times][:notes]
     @timer.save
     current_user.current_timer_id = nil

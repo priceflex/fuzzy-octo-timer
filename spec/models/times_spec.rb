@@ -23,6 +23,8 @@ describe Times do
     it { should have_db_column(:employee_id).of_type(:integer) }
     it { should have_db_column(:project_id).of_type(:integer) }
     it { should have_db_column(:notes).of_type(:text) }
+    it { should validate_presence_of(:project_id) }
+    it { should validate_presence_of(:employee_id) }
   end
   it { belong_to(:employee) }
   it { belong_to(:project) }

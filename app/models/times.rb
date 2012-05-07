@@ -17,7 +17,8 @@ class Times < ActiveRecord::Base
   attr_accessible :clock_in, :clock_out, :employee_id, :project_id, :time_decimal, :notes
   belongs_to :employee
   belongs_to :project
-
+  validates :project_id, :presence => true
+  validates :employee_id, :presence => true
 
   def clocked_in?
     clock_in != nil && clock_out == nil

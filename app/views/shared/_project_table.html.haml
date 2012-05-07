@@ -1,0 +1,21 @@
+.project_times
+  %p 
+    Total Time:
+    =@project.total_time if @project
+  %table
+    %tr
+      %th user
+      %th clock in 
+      %th clock out  
+      %th notes
+      %th decimal
+      %th action
+    -@project.times.each do |time|
+      -#=form_for time do |f|
+      %tr
+        %td= time.employee.username
+        %th= time.clock_in
+        %th= time.clock_out
+        %th= time.notes
+        -#%th= f.text_field :time_decimal
+        -#%th= f.submit "save"

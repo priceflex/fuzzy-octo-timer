@@ -3,6 +3,7 @@
 =simple_form_for @timer, :url => timer_path do |f|
   -if @timer.clocked_in?
     ="Project: #{@timer.project.name}"
+    =text_field_tag :timer
   -else
     =f.input :project_id, :collection => @projects, :prompt => "Select your project"
   =f.input :notes
@@ -13,25 +14,5 @@
     =f.button :submit, "Start"
 
 -if @project
-  .project_times
-    %p 
-      Total Time:
-      =@project.total_time if @project
-    %table
-      %tr
-        %th user
-        %th clock in 
-        %th clock out  
-        %th notes
-        %th decimal
-        %th action
-      -@project.times.each do |time|
-        -#=form_for time do |f|
-        %tr
-          %td= time.employee.username
-          %th= time.clock_in
-          %th= time.clock_out
-          %th= time.notes
-          -#%th= f.text_field :time_decimal
-          -#%th= f.submit "save"
+  = render :partial => 'shared/project_table'
 
