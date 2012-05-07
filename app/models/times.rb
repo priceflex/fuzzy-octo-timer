@@ -32,6 +32,10 @@ class Times < ActiveRecord::Base
     end
   end
 
+  def to_milliseconds
+    (total_time_decimal.to_f/3600.to_i).round(2)* 3600000
+  end
+
   def total_time
     total_time_hours_decimal
   end

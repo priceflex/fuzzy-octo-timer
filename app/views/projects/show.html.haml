@@ -4,4 +4,8 @@
 
 %p
   Project Details
+  %br
+  Your Time:
+  = @project.my_time(current_user)
+
   = render :partial => "shared/project_table"

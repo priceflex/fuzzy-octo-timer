@@ -3,7 +3,17 @@
 =simple_form_for @timer, :url => timer_path do |f|
   -if @timer.clocked_in?
     ="Project: #{@timer.project.name}"
-    =text_field_tag :timer
+    .timer
+      .hide
+        #start_time
+          =@timer.to_milliseconds.to_i
+      #stopwatch
+      :javascript 
+        $(document).ready(function() { 
+        var start_time = parseInt($("#start_time").text());
+        $("#stopwatch").stopwatch({
+        startTime: start_time,
+        format: '{h}:{m}:{s}'}).stopwatch('start');});
   -else
     =f.input :project_id, :collection => @projects, :prompt => "Select your project"
   =f.input :notes

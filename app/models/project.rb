@@ -12,6 +12,9 @@ class Project < ActiveRecord::Base
   attr_accessible :name, :total_time, :times_attributes
   has_many :times, :class_name => Times
 
+  def my_time(employee)
+    times.where(:employee_id => employee.id).map(&:total_time).sum.round(2)
+  end 
   def total_time
     times.map(&:total_time).sum.round(2)
   end
