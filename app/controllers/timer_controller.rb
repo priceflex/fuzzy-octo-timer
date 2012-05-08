@@ -4,8 +4,9 @@ class TimerController < ApplicationController
   def index
     if current_user.current_timer_id
       @timer = Times.find(current_user.current_timer_id)
+      @timer.notes.strip
     else
-      @timer = Times.new
+      @timer = Times.new(:notes => cookies[:notes], :project_id => cookies[:project_id])
     end
     @projects = Project.all
     @project = @timer.project unless @timer.new_record?
@@ -23,8 +24,12 @@ class TimerController < ApplicationController
   end
   def create
     @timer = current_user.times.new(params[:times])
+    @timer.notes = params[:times][:notes].strip
     @timer.clock_in = Time.now
     if @timer.save
+      cookies[:project_id] = @timer.project_id
+      cookies[:notes] = @timer.notes
+
       current_user.current_timer_id = @timer.id
       current_user.save
       redirect_to timer_path, :notice => "Started #{@timer.project.name}" 

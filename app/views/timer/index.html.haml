@@ -13,7 +13,7 @@
         var start_time = parseInt($("#start_time").text());
         $("#stopwatch").stopwatch({
         startTime: start_time,
-        format: '{h}:{m}:{s}'}).stopwatch('start');});
+        format: '{hh}:{mm}:{ss}'}).stopwatch('start');});
   -else
     =f.input :project_id, :collection => @projects, :prompt => "Select your project"
   =f.input :notes
@@ -25,4 +25,3 @@
 
 -if @project
   = render :partial => 'shared/project_table'
-
