@@ -58,7 +58,7 @@ group :test, :development do
   gem "guard-bundler"
   gem "guard-rspec"
   gem "guard-migrate"
-  gem "shoulda"
+  gem "shoulda-matchers"
 end
 group :production do
   gem "pg"
