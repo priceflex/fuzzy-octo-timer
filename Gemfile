@@ -41,6 +41,7 @@ gem 'simple_form'
 
 group :development do
   gem 'rails3-generators' # for factory_girl_rails and simple_form
+  gem 'puma'
 end
 
 group :test, :development do
@@ -57,7 +58,7 @@ group :test, :development do
   gem "guard-bundler"
   gem "guard-rspec"
   gem "guard-migrate"
-  gem "shoulda"
+  gem "shoulda-matchers"
 end
 group :production do
   gem "pg"

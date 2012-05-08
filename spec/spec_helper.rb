@@ -17,7 +17,7 @@ Spork.prefork do
   require 'rspec/rails'
   require 'rspec/autorun'
   require "capybara/rspec"
-  require "shoulda"
+  require "shoulda-matchers"
 
   include Capybara::DSL
   
