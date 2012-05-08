@@ -1,0 +1,59 @@
+=== 1.2.2 / 2012-04-28
+
+* 4 bug fixes:
+
+  * Report a lowlevel error to stderr
+  * Set a fallback SERVER_NAME and SERVER_PORT
+  * Keep the encoding of the body correct. Fixes #79
+  * show error.to_s along with backtrace for low-level error
+
+=== 1.2.1 / 2012-04-11
+
+ 1 bug fix:
+
+   * Fix rack.url_scheme for SSL servers. Fixes #65
+
+=== 1.2.0 / 2012-04-11
+
+ 1 major feature:
+
+   * When possible, the internal restart does a "hot restart" meaning
+     the server sockets remains open, so no connections are lost.
+
+ 1 minor feature:
+
+    * More helpful fallback error message
+
+ 6 bug fixes:
+
+    * Pass the proper args to unknown_error. Fixes #54, #58
+    * Stop the control server before restarting. Fixes #61
+    * Fix reporting https only on a true SSL connection
+    * Set the default content type to 'text/plain'. Fixes #63
+    * Use REUSEADDR. Fixes #60
+    * Shutdown gracefull on SIGTERM. Fixes #53
+
+ 2 new contributers:
+
+   * Seamus Abshere
+   * Steve Richert
+
+=== 1.1.1 / 2012-03-30
+
+ 1 bugfix:
+
+   * Include puma/compat.rb in the gem (oops!)
+
+=== 1.1.0 / 2012-03-30
+
+ 1 bugfix:
+
+   * Make sure that the unix socket has the perms 0777 by default
+
+ 1 minor feature:
+
+   * Add umask param to the unix:// bind to set the umask
+
+=== 1.0.0 / 2012-03-29
+
+* Released!
