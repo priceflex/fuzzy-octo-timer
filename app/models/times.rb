@@ -31,9 +31,10 @@ class Times < ActiveRecord::Base
       return Time.now - clock_in
     end
   end
+
   def total_time=(time)
     #ajust time out
-    self.clock_out = self.clock_in + (time.to_i * 3600)
+    self.clock_out = self.clock_in + (time.to_f* 3600)
     #save time in decimal
     self.time_decimal=time
   end

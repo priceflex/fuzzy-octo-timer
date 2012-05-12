@@ -38,10 +38,20 @@ describe "TracktimeOnProjects" do
     visit timer_path
     select "Test Project", :from => "Project"
     click_button "Start"
+    click_button "Stop"
+    click_button "Start"
     fill_in "Total time", :with => "99.0"
     click_button "Update"
     find_field("Total time").value.should == "99.0"
-    #binding.pry
-    
+  end
+  it "should not be able to edit a project when clocked in" do
+    project =  Project.create(:name => "Test Project")
+    create_employee
+    login
+    visit timer_path
+    select "Test Project", :from => "Project"
+    click_button "Start"
+    page.has_no_select?("Project").should == true
+    print page.html
   end
 end

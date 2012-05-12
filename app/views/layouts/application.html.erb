@@ -6,10 +6,10 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body onload="moveTo(0,0); resizeTo(400,400);" class="<%= params[:controller] %>">
+  <body onload="moveTo(0,0); resizeTo(400,400);" class="<%= params[:controller] %> <%= clocked_in_class %>">
     <%= flash_message %>
     <% if current_user %>
-      <div class=".nav">
+      <div class="nav">
         <%=link_to "Home", timer_path %>
         <%=link_to "Projects", projects_path %>
         <%=link_to "Employees", employees_path %>

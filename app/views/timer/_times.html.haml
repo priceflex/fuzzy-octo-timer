@@ -1,0 +1,9 @@
+%tr{:class => ("clocked_in" if time.clocked_in?).to_s + " " + cycle("odd","even") }
+  =simple_form_for time do |f|
+    %td= time.employee.username
+    %td{:class => "notes"}
+      = f.input :notes, :label_html => {:hidden => true}
+    %td= time.total_time_display
+    %td{:class => "decimal"}
+      = f.input :total_time, :label_html => {:hidden => true} 
+    %td= f.button :submit, "Update"

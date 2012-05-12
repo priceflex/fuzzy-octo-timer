@@ -6,15 +6,11 @@
     %tr
       %th user
       %th notes
-      %th time
-      %th hr decimal
+      %th hours
+      %th decimal
       %th action
     -@project.times.order("id desc").each do |time|
-      -#=form_for time do |f|
-      %tr
-        %td= time.employee.username
-        %th= time.notes
-        %th= time.total_time_display
-        %th= time.total_time
-        -#%th= f.text_field :time_decimal
-        -#%th= f.submit "save"
+      -unless time.clocked_in?
+        = render :partial => 'timer/times', :locals => {:time => time}
+      -else
+        = render :partial => 'timer/read_times', :locals => {:time => time}

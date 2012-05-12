@@ -17,4 +17,8 @@ class Employee < ActiveRecord::Base
   has_secure_password
   validates_presence_of :password, :on => :create
   validates_uniqueness_of :username
+
+  def clocked_in?
+    current_timer_id != nil
+  end
 end

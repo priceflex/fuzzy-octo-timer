@@ -1,0 +1,8 @@
+%tr{:class => ("clocked_in" if time.clocked_in?).to_s + " " +cycle("odd","even") }
+  %td= time.employee.username
+  %td{:class => "notes"}
+    = time.notes
+  %td= time.total_time_display
+  %td{:class => "decimal"}
+    = time.total_time
+  %td

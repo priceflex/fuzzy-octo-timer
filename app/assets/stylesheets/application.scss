@@ -21,4 +21,17 @@ body.timer {
     height: 30px;
   }
 }
+body.clocked_in{
+  background-color: #C0EABC;
+}
 
+/*Project times*/
+.project_times{
+  td.decimal input{
+    width: 50px;
+  }
+  td.notes textarea{
+    width: 300px;
+    height: 30px;
+  }
+}

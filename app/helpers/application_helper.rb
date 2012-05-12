@@ -8,4 +8,13 @@ module ApplicationHelper
     end 
     messages.html_safe
   end
+  def clocked_in_class
+    if current_user
+      if current_user.clocked_in?
+        "clocked_in"
+      else
+        "clocked_out"
+      end
+    end
+  end
 end
