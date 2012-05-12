@@ -4,6 +4,6 @@ class TimesController < ApplicationController
     times = Times.find(params[:id])
     times.update_attributes(params[:times])
     times.save
-    redirect_to timer_path
+    redirect_to :back
   end
 end
