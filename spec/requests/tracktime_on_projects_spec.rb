@@ -52,6 +52,5 @@ describe "TracktimeOnProjects" do
     select "Test Project", :from => "Project"
     click_button "Start"
     page.has_no_select?("Project").should == true
-    print page.html
   end
 end
