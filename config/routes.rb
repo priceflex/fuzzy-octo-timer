@@ -11,6 +11,7 @@ SglTimer::Application.routes.draw do
   post "timer" => "timer#create", :as => :timer
   put "timer" => "timer#update", :as => :timer
 
+  resources :times
   resources :sessions
   resources :employees
   resources :projects

@@ -30,5 +30,18 @@ describe "TracktimeOnProjects" do
     login
     page.has_button?("Start").should == false
   end
-  it "should be able to edit notes and time when project is loaded"
+  it "should be able to edit notes and time when project is loaded" do
+    project =  Project.create(:name => "Test Project")
+    project.times.create(:clock_in => Time.now, :clock_out => 1.hour.from_now, :notes => "this is a note")
+    create_employee
+    login
+    visit timer_path
+    select "Test Project", :from => "Project"
+    click_button "Start"
+    fill_in "Total time", :with => "99.0"
+    click_button "Update"
+    find_field("Total time").value.should == "99.0"
+    #binding.pry
+    
+  end
 end

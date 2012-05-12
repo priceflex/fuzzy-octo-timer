@@ -14,7 +14,7 @@
 #
 
 class Times < ActiveRecord::Base
-  attr_accessible :clock_in, :clock_out, :employee_id, :project_id, :time_decimal, :notes
+  attr_accessible :clock_in, :clock_out, :employee_id, :project_id, :time_decimal, :notes, :total_time
   belongs_to :employee
   belongs_to :project
   validates :project_id, :presence => true
@@ -30,6 +30,12 @@ class Times < ActiveRecord::Base
     else
       return Time.now - clock_in
     end
+  end
+  def total_time=(time)
+    #ajust time out
+    self.clock_out = self.clock_in + (time.to_i * 3600)
+    #save time in decimal
+    self.time_decimal=time
   end
 
   def to_milliseconds

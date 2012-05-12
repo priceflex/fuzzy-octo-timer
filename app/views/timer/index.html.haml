@@ -1,21 +1,8 @@
 %h3 SGL Project Timer
 
+
 =simple_form_for @timer, :url => timer_path do |f|
-  -if @timer.clocked_in?
-    ="Project: #{@timer.project.name}"
-    .timer
-      .hide
-        #start_time
-          =@timer.to_milliseconds.to_i
-      #stopwatch
-      :javascript 
-        $(document).ready(function() { 
-        var start_time = parseInt($("#start_time").text());
-        $("#stopwatch").stopwatch({
-        startTime: start_time,
-        format: '{hh}:{mm}:{ss}'}).stopwatch('start');});
-  -else
-    =f.input :project_id, :collection => @projects, :prompt => "Select your project"
+  =f.input :project_id, :collection => @projects, :prompt => "Select your project"
   =f.input :notes
   -if @timer.clocked_in?
     =f.button :submit, "Stop"
@@ -24,4 +11,26 @@
     =f.button :submit, "Start"
 
 -if @project
-  = render :partial => 'shared/project_table'
+  .project_times
+    %table
+      %tr
+        %th user
+        -#%th clock in 
+        -#%th clock out  
+        %th notes
+        %th decimal
+        %th action
+      -@project.times.each do |time|
+        =simple_form_for time do |f|
+          %tr
+            %td= time.employee.username
+            -#%th= time.clock_in
+            -#%th= time.clock_out
+            %th= time.notes
+            %th= f.input :total_time, :label_html => {:hidden => true} 
+            %th= debug time.total_time
+            %th= f.button :submit, "Update"
+
+    %p 
+      Total Time:
+      =@project.total_time if @project
