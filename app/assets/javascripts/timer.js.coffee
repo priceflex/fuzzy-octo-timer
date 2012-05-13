@@ -3,3 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
  
 jQuery ->
+  $("#times_project_id").change ->
+    $("#times_notes").val ""
+
+
