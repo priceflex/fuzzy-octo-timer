@@ -1,0 +1,16 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1334131941.8667822:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%954daced256b11ebb67a641a42f03a8bI"logical_path;
+FI"=jquery-ui/black-tie/ui-bg_inset-hard_55_ffeb80_1x100.png;
+TI"pathname;
+F"x/home/mark/dev/personal/jquery-ui-themes/app/assets/images/jquery-ui/black-tie/ui-bg_inset-hard_55_ffeb80_1x100.pngI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2012-02-24T19:19:21+00:00;
+FI"length;
+FI"144;
+FI"digest;
+F"%f1f6029300797019836cbe0cc81a12a5I"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5

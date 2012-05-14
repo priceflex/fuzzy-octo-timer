@@ -1,0 +1,16 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1334131941.9102526:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%dc76ca59eacf15c677a25f27ce195221I"logical_path;
+FI"4jquery-ui/black-tie/ui-icons_ffcf29_256x240.png;
+TI"pathname;
+F"o/home/mark/dev/personal/jquery-ui-themes/app/assets/images/jquery-ui/black-tie/ui-icons_ffcf29_256x240.pngI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2012-02-24T19:19:21+00:00;
+FI"length;
+FI"	5355;
+FI"digest;
+F"%1c86a0df9c4bdfc7664f1f7b7e41159aI"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5

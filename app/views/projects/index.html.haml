@@ -3,10 +3,12 @@
 %table
   %tr
     %th Name
+    %th Time Left
     %th Action
   -@projects.each do |project|
     %tr
       %td= project.name
+      %td= distance_of_time_in_words_to_now project.due_date
       %td
         = link_to "Show Details", project
 = link_to "Create New Project", new_project_path

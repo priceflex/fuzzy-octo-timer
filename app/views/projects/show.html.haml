@@ -1,6 +1,13 @@
 %h1
   Project:
   = @project.name
+Time Left:
+= distance_of_time_in_words_to_now @project.due_date
+=simple_form_for @project do |f|
+  =f.input :due_date_string, :label => "Project Due Date", :as => :string
+  =f.input :git_repo
+  =f.input :description
+  =f.button :submit, "Update"
 
 %p
   Project Details

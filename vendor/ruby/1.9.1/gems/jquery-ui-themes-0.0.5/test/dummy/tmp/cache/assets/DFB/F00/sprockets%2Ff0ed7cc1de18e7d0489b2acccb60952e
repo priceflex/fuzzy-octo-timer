@@ -1,0 +1,16 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1334131941.924128:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%2e6a69c67aa762a65fdf6d1d46629032I"logical_path;
+FI"Bjquery-ui/black-tie/ui-bg_highlight-hard_100_f9f9f9_1x100.png;
+TI"pathname;
+F"}/home/mark/dev/personal/jquery-ui-themes/app/assets/images/jquery-ui/black-tie/ui-bg_highlight-hard_100_f9f9f9_1x100.pngI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2012-02-24T19:19:21+00:00;
+FI"length;
+FI"86;
+FI"digest;
+F"%0d7c53ae142df24c24a8a5ec589226a9I"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5

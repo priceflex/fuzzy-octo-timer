@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   before_filter :authenicate
-
   def index
     @projects = Project.all
   end
@@ -9,7 +8,17 @@ class ProjectsController < ApplicationController
   end
   def show
     @project = Project.find(params[:id])
+    unless @project.due_date_string
+      @project.due_date_string = Time.now
+    end
   end
+
+  def update
+    @project = Project.find(params[:id])
+    @project.update_attributes(params[:project])
+    redirect_to :back, :notice => "Successfully update the project info"
+  end
+
   def create
     @project = Project.new(params[:project])
     if @project.save

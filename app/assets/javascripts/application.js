@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //=# require_tree .
 //= require jintervals
 //= require jquery.stopwatch 
 //= require timer.js
+//= require project

@@ -9,9 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery-ui/trontastic
  *= require_tree .
 
-*/
+ */
 /*Body Timer*/
 .hide{
   display: none;
@@ -26,6 +27,11 @@ body.clocked_in{
 }
 
 /*Project times*/
+.projects {
+  #project_description{
+    height: 100px;
+  }
+}
 .project_times{
   td.decimal input{
     width: 50px;
