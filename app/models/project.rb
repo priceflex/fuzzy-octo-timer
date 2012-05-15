@@ -9,7 +9,7 @@
 #
 
 class Project < ActiveRecord::Base
-  attr_accessible :name, :total_time, :times_attributes, :due_date_string, :due_date, :git_repo, :description
+  attr_accessible :name, :total_time, :times_attributes, :due_date_string, :due_date, :git_repo, :description, :git_master_branch
   attr_reader :due_date_string
 
   has_many :times, :class_name => Times

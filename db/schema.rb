@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120514011606) do
+ActiveRecord::Schema.define(:version => 20120515041123) do
 
   create_table "employees", :force => true do |t|
     t.string   "username"
@@ -23,11 +23,12 @@ ActiveRecord::Schema.define(:version => 20120514011606) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.datetime "due_date"
     t.string   "git_repo"
     t.text     "description"
+    t.string   "git_master_branch"
   end
 
   create_table "times", :force => true do |t|

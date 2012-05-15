@@ -6,6 +6,7 @@ Time Left:
 =simple_form_for @project do |f|
   =f.input :due_date_string, :label => "Project Due Date", :as => :string
   =f.input :git_repo
+  =f.input :git_master_branch
   =f.input :description
   =f.button :submit, "Update"
 

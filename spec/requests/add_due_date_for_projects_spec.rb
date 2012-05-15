@@ -25,6 +25,14 @@ describe "Add details about project" do
     click_link "Show Details"
     find_field("project_git_repo").value.should == project.git_repo
   end
+  it "should allow you to specify a git branch" do
+    project = Project.create(:name => "Test Project", :due_date_string => "05/13/2012", :description => "This is a description", :git_master_branch => "master")
+    create_employee
+    login
+    visit projects_path
+    click_link "Show Details"
+    find_field("project_git_master_branch").value.strip.should == project.git_master_branch
+  end
   it "should allow you to enter a description about the project" do
     project = Project.create(:name => "Test Project", :due_date_string => "05/13/2012", :description => "This is a description")
     create_employee
