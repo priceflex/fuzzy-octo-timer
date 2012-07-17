@@ -6,7 +6,7 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body onload="moveTo(0,0); resizeTo(400,400);" class="<%= params[:controller] %> <%= clocked_in_class %>">
+  <body class="<%= params[:controller] %> <%= clocked_in_class %>">
     <%= flash_message %>
     <% if current_user %>
       <div class="nav">

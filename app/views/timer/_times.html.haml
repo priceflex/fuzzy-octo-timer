@@ -1,6 +1,7 @@
 %tr{:class => ("clocked_in" if time.clocked_in?).to_s + " " + cycle("odd","even") }
   =simple_form_for time do |f|
     %td= time.employee.username
+    %td= time.created_at.to_s(:stand_date)
     %td{:class => "notes"}
       = f.input :notes, :label_html => {:hidden => true}
     %td= time.total_time_display
