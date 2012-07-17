@@ -2,10 +2,14 @@
 #
 # Table name: projects
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  id                :integer         not null, primary key
+#  name              :string(255)
+#  created_at        :datetime        not null
+#  updated_at        :datetime        not null
+#  due_date          :datetime
+#  git_repo          :string(255)
+#  description       :text
+#  git_master_branch :string(255)
 #
 
 class Project < ActiveRecord::Base
@@ -13,6 +17,11 @@ class Project < ActiveRecord::Base
   attr_reader :due_date_string
 
   has_many :times, :class_name => Times
+
+  #Employees on a project
+  def employees
+    times.map(&:employee).uniq
+  end
 
   def my_time(employee)
     times.where(:employee_id => employee.id).map(&:total_time).sum.round(2)

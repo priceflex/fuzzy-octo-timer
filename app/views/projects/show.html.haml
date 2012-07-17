@@ -1,6 +1,7 @@
 %h1
   Project:
   = @project.name
+
 Time Left:
 = distance_of_time_in_words_to_now @project.due_date
 =simple_form_for @project do |f|
@@ -15,5 +16,13 @@ Time Left:
   %br
   Your Time:
   = @project.my_time(current_user)
+
+Employees:
+%ul
+  -@project.employees.each do |employee|
+    %li
+      =employee.username
+      |
+      =employee.total_project_time(@project.id)
 
   = render :partial => "shared/project_table"

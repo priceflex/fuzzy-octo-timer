@@ -21,4 +21,8 @@ class Employee < ActiveRecord::Base
   def clocked_in?
     current_timer_id != nil
   end
+
+  def total_project_time(project_id)
+    times.where(:project_id => project_id).map(&:total_time).sum.round(2)
+  end
 end
